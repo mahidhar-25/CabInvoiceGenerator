@@ -79,4 +79,34 @@ public class InvoiceGeneratorTest {
         assertTrue(expectedInvoice.equals(invoiceSummary));
     }
 
+
+    /*
+     * Test case for getting invoice summary for a specific user.
+     */
+    @Test
+    public void givenUserId_ShouldReturnInvoiceSummary(){
+        ArrayList<Ride> rides = new ArrayList<>(Arrays.asList(
+                new Ride(2.0, 5),
+                new Ride(0.1, 1),
+                new Ride(10, 3),
+                new Ride(2.0, 4),
+                new Ride(0.3, 2),
+                new Ride(6, 3),
+                new Ride(2.5, 5),
+                new Ride(1.1, 2),
+                new Ride(9, 3)
+        ));
+        ArrayList<User> userArrayList = new ArrayList<>(Arrays.asList(
+                new User("user1" , new ArrayList<>(rides.subList(0, 3))),
+                new User("user2" , new ArrayList<>(rides.subList(1, 4))),
+                new User("user3" , new ArrayList<>(rides.subList(2, 6))),
+                new User("user4" , new ArrayList<>(rides.subList(3, 7)))
+        ));
+        CabOrganization.setUsersList(userArrayList);
+        String userId = "user1";
+        InvoiceSummary invoiceSummary = invoiceGenerator.getInvoiceSummary(userId);
+        InvoiceSummary expectedInvoice = new InvoiceSummary(3 , 133);
+        assertTrue(expectedInvoice.equals(invoiceSummary));
+    }
+
 }
