@@ -2,8 +2,12 @@
 package com.bridgelaz.cabinvoicegenerator;
 
 import com.bridggelabz.cabinvoicegenerator.InvoiceGenerator;
+import com.bridggelabz.cabinvoicegenerator.Ride;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 /*
@@ -43,6 +47,19 @@ public class InvoiceGeneratorTest {
         int time = 1;
         double fair = invoiceGenerator.calculateFare(distance , time);
         assertEquals(5 , fair , 0.0);
+    }
+    /*
+     * Test case for calculating total fare for multiple rides.
+     */
+    @Test
+    public  void givenMultipleRides_ShouldReturnTotalFare(){
+        ArrayList<Ride> rides = new ArrayList<>(Arrays.asList(
+                new Ride(2.0, 5),
+                new Ride(0.1, 1),
+                new Ride(10, 3)
+        ));
+        double totalFare = invoiceGenerator.calculateFare(rides);
+        assertEquals(133 , totalFare , 0.0);
     }
 
 
