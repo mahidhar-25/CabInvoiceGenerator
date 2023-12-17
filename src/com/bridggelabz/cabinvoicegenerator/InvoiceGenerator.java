@@ -55,5 +55,15 @@ public class InvoiceGenerator {
         }
         return totalFare;
     }
+    /*
+     * @desc : Generate an InvoiceSummary for multiple rides.
+     * @param rides - List of Ride objects
+     * @return - InvoiceSummary containing the number of rides and total fare
+     */
+    public InvoiceSummary getInvoiceSummary(ArrayList<Ride> rides) {
+        double totalFare = calculateFare(rides);
+        return new InvoiceSummary(rides.size(), totalFare);
+    }
+
 
 }
