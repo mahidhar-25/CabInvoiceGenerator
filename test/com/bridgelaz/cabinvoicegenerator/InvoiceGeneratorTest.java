@@ -1,14 +1,11 @@
 
 package com.bridgelaz.cabinvoicegenerator;
 
+import com.bridggelabz.cabinvoicegenerator.InvoiceGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 /*
  * Test class for InvoiceGenerator that includes various test cases.
  */
