@@ -2,6 +2,8 @@
 
 package com.bridggelabz.cabinvoicegenerator;
 
+import java.util.ArrayList;
+
 /*
  * @desc : The InvoiceGenerator class handles the generation of invoices for cab rides.
  * It includes methods for calculating fares based on distance and time, as well as generating
@@ -41,6 +43,17 @@ public class InvoiceGenerator {
         }
         return totalFare;
     }
-
+    /*
+     * @desc : Calculate fare for multiple rides.
+     * @param rides - List of Ride objects containing distance and time information
+     * @return - Total fare for all rides
+     */
+    public double calculateFare(ArrayList<Ride> rides) {
+        double totalFare = 0;
+        for (Ride ride : rides) {
+            totalFare += calculateFare(ride.getDistance(), ride.getTime());
+        }
+        return totalFare;
+    }
 
 }
