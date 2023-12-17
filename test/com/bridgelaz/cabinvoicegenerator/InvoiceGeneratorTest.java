@@ -62,5 +62,19 @@ public class InvoiceGeneratorTest {
         assertEquals(133 , totalFare , 0.0);
     }
 
+    /*
+     * Test case for getting invoice summary for multiple rides.
+     */
+    @Test
+    public void givenMultipleRides_ShouldReturnInvoiceSummary(){
+        ArrayList<Ride> rides = new ArrayList<>(Arrays.asList(
+                new Ride(2.0, 5),
+                new Ride(0.1, 1),
+                new Ride(10, 3)
+        ));
+        InvoiceSummary invoiceSummary = invoiceGenerator.getInvoiceSummary(rides);
+        InvoiceSummary expectedInvoice = new InvoiceSummary(3 , 133);
+        assertTrue(expectedInvoice.equals(invoiceSummary));
+    }
 
 }
