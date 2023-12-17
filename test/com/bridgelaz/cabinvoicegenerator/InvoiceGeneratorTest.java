@@ -1,9 +1,7 @@
 
 package com.bridgelaz.cabinvoicegenerator;
 
-import com.bridggelabz.cabinvoicegenerator.InvoiceGenerator;
-import com.bridggelabz.cabinvoicegenerator.InvoiceSummary;
-import com.bridggelabz.cabinvoicegenerator.Ride;
+import com.bridggelabz.cabinvoicegenerator.*;
 import org.junit.Before;
 import org.junit.Test;
 

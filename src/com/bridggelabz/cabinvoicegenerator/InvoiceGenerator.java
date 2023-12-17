@@ -64,6 +64,16 @@ public class InvoiceGenerator {
         double totalFare = calculateFare(rides);
         return new InvoiceSummary(rides.size(), totalFare);
     }
-
+    /*
+     * @desc : Generate an InvoiceSummary for rides associated with a specific user.
+     * @param userId - User ID to identify the user
+     * @return - InvoiceSummary containing the number of rides and total fare for the user
+     */
+    public InvoiceSummary getInvoiceSummary(String userId) {
+        CabOrganization cabOrganization = new CabOrganization();
+        User user = cabOrganization.findUserByUserId(userId);
+        double totalFare = calculateFare(user.getRides());
+        return new InvoiceSummary(user.getRides().size(), totalFare);
+    }
 
 }
